@@ -350,7 +350,7 @@ etc/selinux/vendor_service_contexts
 etc/selinux/vendor_tee_service_contexts
 etc/selinux/vndservice_contexts
 etc/sysconfig/component-overrides.xml
-etc/sysconfig/tegu-component-overrides.xml
+etc/sysconfig/stallion-component-overrides.xml
 etc/vintf/compatibility_matrix.xml
 etc/vintf/manifest.xml
 etc/vintf/manifest/android.hardware.drm-service.clearkey.xml
@@ -488,19 +488,19 @@ odm_dlkm/etc/build.prop
 # Exclude overlays, symlinks and extra files that we override
 
 # Overlays
-overlay/CrossDeviceAccessServicePrimary__tegu__auto_generated_rro_vendor.apk
-overlay/DMService__tegu__auto_generated_rro_vendor.apk
-overlay/DeviceDiagnostics__tegu__auto_generated_rro_vendor.apk
-overlay/Flipendo__tegu__auto_generated_rro_vendor.apk
-overlay/SettingsProvider__tegu__auto_generated_rro_vendor.apk
-overlay/SettingsGoogle__tegu__auto_generated_rro_vendor.apk
-overlay/StorageManagerGoogle__tegu__auto_generated_rro_vendor.apk
-overlay/SystemUIGoogle__tegu__auto_generated_rro_vendor.apk
-overlay/TeleService__tegu__auto_generated_rro_vendor.apk
-overlay/Traceur__tegu__auto_generated_rro_vendor.apk
-overlay/framework-res__tegu__auto_generated_rro_vendor.apk
+overlay/CrossDeviceAccessServicePrimary__stallion__auto_generated_rro_vendor.apk
+overlay/DMService__stallion__auto_generated_rro_vendor.apk
+overlay/DeviceDiagnostics__stallion__auto_generated_rro_vendor.apk
+overlay/Flipendo__stallion__auto_generated_rro_vendor.apk
+overlay/SettingsProvider__stallion__auto_generated_rro_vendor.apk
+overlay/SettingsGoogle__stallion__auto_generated_rro_vendor.apk
+overlay/StorageManagerGoogle__stallion__auto_generated_rro_vendor.apk
+overlay/SystemUIGoogle__stallion__auto_generated_rro_vendor.apk
+overlay/TeleService__stallion__auto_generated_rro_vendor.apk
+overlay/Traceur__stallion__auto_generated_rro_vendor.apk
+overlay/framework-res__stallion__auto_generated_rro_vendor.apk
 
-overlay/NfcOverlayTeguGsi.apk
+overlay/NfcOverlayStallionGsi.apk
 overlay/PixelNfcOverlayCommon.apk
 
 # Symlinks

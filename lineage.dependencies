@@ -4,7 +4,7 @@
     "target_path": "device/google/zumapro"
   },
   {
-    "repository": "android_device_google_tegu-kernels",
-    "target_path": "device/google/tegu-kernels"
+    "repository": "android_device_google_stallion-kernels",
+    "target_path": "device/google/stallion-kernels"
   }
 ]

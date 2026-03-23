@@ -73,9 +73,9 @@ extract_fns: extract_fns_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'tegu',
+    'stallion',
     'google',
-    device_rel_path='device/google/tegu/tegu',
+    device_rel_path='device/google/stallion/stallion',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,

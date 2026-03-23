@@ -4,7 +4,7 @@
 //
 
 prebuilt_etc {
-    name: "init.recovery.tegu.touch.rc",
+    name: "init.recovery.stallion.touch.rc",
     src: "init.recovery.touch.rc",
     sub_dir: "init",
     recovery: true,

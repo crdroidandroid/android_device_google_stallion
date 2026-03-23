@@ -7,7 +7,7 @@
 
 # Kernel
 TARGET_LINUX_KERNEL_VERSION := 6.1
-TARGET_KERNEL_DEVICE := tegu
+TARGET_KERNEL_DEVICE := stallion
 TARGET_KERNEL_DIR := device/google/$(TARGET_KERNEL_DEVICE)-kernels/$(TARGET_LINUX_KERNEL_VERSION)
 TARGET_KERNEL_PLATFORM_SOURCE := google/gs-$(TARGET_LINUX_KERNEL_VERSION)
 
@@ -52,10 +52,10 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/vendor.prop
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.tegu.rc
+    $(DEVICE_PATH)/recovery/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.stallion.rc
 
 PRODUCT_PACKAGES += \
-    init.recovery.tegu.touch.rc
+    init.recovery.stallion.touch.rc
 
 # Satellite
 PRODUCT_COPY_FILES += \

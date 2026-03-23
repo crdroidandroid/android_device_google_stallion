@@ -7,13 +7,13 @@ soong_namespace {
 }
 
 package {
-    default_applicable_licenses: ["device_google_tegu_license"],
+    default_applicable_licenses: ["device_google_stallion_license"],
 }
 
 // Added automatically by a large-scale-change
 // See: http://go/android-license-faq
 license {
-    name: "device_google_tegu_license",
+    name: "device_google_stallion_license",
     visibility: [":__subpackages__"],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",

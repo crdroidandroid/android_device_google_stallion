@@ -8,6 +8,6 @@ set -e
 
 MY_DIR="$(cd "$(dirname "${0}")"; pwd -P)"
 
-pushd "${MY_DIR}/tegu"
+pushd "${MY_DIR}/stallion"
 ./setup-makefiles.py
 popd

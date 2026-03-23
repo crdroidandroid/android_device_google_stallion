@@ -322,7 +322,7 @@ vendor/etc/init/fingerprint-goodix.rc
 vendor/etc/init/google.hardware.media.c2@2.0-service.rc
 vendor/etc/init/gpuflag.rc
 vendor/etc/init/hw/init.persist.rc
-vendor/etc/init/hw/init.tegu.rc
+vendor/etc/init/hw/init.stallion.rc
 vendor/etc/init/hw/init.zumapro.board.rc
 vendor/etc/init/hw/init.zumapro.soc.rc
 vendor/etc/init/hw/init.zumapro.usb.rc
@@ -423,11 +423,11 @@ vendor/etc/sensors/device_cal_info
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/registry/append/motion_state.reg
 vendor/etc/sensors/registry/append/power.reg
-vendor/etc/sensors/registry/tegu_common.reg
-vendor/etc/sensors/registry/tegu_dev.reg
-vendor/etc/sensors/registry/tegu_dvt.reg
-vendor/etc/sensors/registry/tegu_evt.reg
-vendor/etc/sensors/registry/tegu_proto.reg
+vendor/etc/sensors/registry/stallion_common.reg
+vendor/etc/sensors/registry/stallion_dev.reg
+vendor/etc/sensors/registry/stallion_dvt.reg
+vendor/etc/sensors/registry/stallion_evt.reg
+vendor/etc/sensors/registry/stallion_proto.reg
 vendor/etc/spatializer/base
 vendor/etc/spatializer/mode_2_ch
 vendor/etc/spatializer/mode_6_ch

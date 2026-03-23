@@ -8,9 +8,9 @@
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit device configuration
-DEVICE_CODENAME := tegu
-DEVICE_PATH := device/google/tegu
-VENDOR_PATH := vendor/google/tegu
+DEVICE_CODENAME := stallion
+DEVICE_PATH := device/google/stallion
+VENDOR_PATH := vendor/google/stallion
 $(call inherit-product, $(DEVICE_PATH)/aosp_$(DEVICE_CODENAME).mk)
 
 # Device identifier. This must come after all inclusions
@@ -24,8 +24,8 @@ TARGET_SCREEN_HEIGHT := 2424
 TARGET_SCREEN_WIDTH := 1080
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="tegu-user 17 CP2A.260605.012 15430684 release-keys" \
-    BuildFingerprint=google/tegu/tegu:17/CP2A.260605.012/15430684:user/release-keys \
+    BuildDesc="stallion-user 17 CP2A.260605.012 15430684 release-keys" \
+    BuildFingerprint=google/stallion/stallion:17/CP2A.260605.012/15430684:user/release-keys \
     BuildSystemFingerprint=google/generic_system_google/generic:17/CP2A.260605.012/15430684:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
 
