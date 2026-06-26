@@ -1,5 +1,6 @@
 # Bluetooth
-bluetooth.device_id.product_id=16660
+bluetooth.core.le.rpa_offload=true
+bluetooth.device_id.product_id=16665
 bluetooth.profile.gmap.enabled=true
 persist.bluetooth.bqr.event_mask=295262
 persist.bluetooth.leaudio.toggle_visible=true
@@ -7,7 +8,7 @@ persist.bluetooth.opus.enabled=true
 ro.bluetooth.leaudio.le_audio_connection_by_default=true
 
 # Device family
-ro.build.device_family=CM4KM4TK4TG4
+ro.build.device_family=FL5BZ5MT5RG5STA5
 
 # Google keyboard
 ro.com.google.ime.height_ratio=1.09
@@ -15,3 +16,6 @@ ro.com.google.ime.kb_pad_port_b=8
 
 # Quick start
 ro.quick_start.device_id=stallion
+
+# Telephony
+persist.vendor.ril.camp_on_earlier=0

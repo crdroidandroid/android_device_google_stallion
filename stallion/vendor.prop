@@ -1,3 +1,11 @@
+# Audio
+persist.vendor.audio.force.fm.enabled=false
+persist.vendor.audio.spatializer.binaural_enabled=false
+persist.vendor.audio.spatializer.speaker_enabled=true
+ro.audio.spatializer_binaural_enabled_default=false
+ro.audio.spatializer_enabled=true
+ro.audio.spatializer_transaural_enabled_default=false
+
 # Bluetooth
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac-opus
 ro.vendor.bluetooth.evb_bdaddr=22:22:22:33:44:55
@@ -11,20 +19,17 @@ ro.vendor.primarydisplay.google-tg4a.temperature_path=/dev/thermal/tz-by-name/di
 vendor.primarydisplay.lhbm.frames_to_reach_peak_brightness=0
 
 # Fingerprint
-persist.vendor.udfps.auth_filter.mt_filter.enabled=true
 persist.vendor.udfps.auto_exposure_compensation_supported=true
 persist.vendor.udfps.boost_whole_auth_path_supported=true
 persist.vendor.udfps.capture_retrying_acquired_msg_supported=false
-persist.vendor.udfps.fps_touch_handler.handle_down_up_events=true
 persist.vendor.udfps.fps_touch_handler_supported=false
 persist.vendor.udfps.fth.touch_resolution_scaling_factor=10
-persist.vendor.udfps.max_touch_filter_supported=true
 persist.vendor.udfps.screen_off_unlock_supported=true
 persist.vendor.udfps.set_lhbm_in_advance=true
-ro.vendor.fingerprint.ta.name=g7a.app
+ro.vendor.fingerprint.ta.name=g7b.app
 
 # GPS
-ro.vendor.gps.atom.enabled=true
+persist.vendor.gps.indoor.enabled=true
 
 # Media
 ro.odm.build.media_performance_class=33
@@ -37,13 +42,25 @@ persist.vendor.ril.use_radio_hal=2.2
 ro.vendor.ril.use_radio_hal=2.2
 
 # SVN
-ro.vendor.build.svn=43
+ro.vendor.build.svn=9
 
 # Vibrator HAL
 persist.vendor.vibrator.hal.context.scale=40
+persist.vendor.vibrator.hal.pwle.frequency.min_hz=60.0
+persist.vendor.vibrator.hal.pwle.svc.mode=255
+persist.vendor.vibrator.hal.pwle.v2_supported=1
+ro.vendor.vibrator.hal.bl.factor=0.42
+ro.vendor.vibrator.hal.damping.q.factor=16
+ro.vendor.vibrator.hal.device.mass=0.18584
+ro.vendor.vibrator.hal.dvl.lra.f0.v=1.08
+ro.vendor.vibrator.hal.dvl.lra.non.f0.v=2.28
+ro.vendor.vibrator.hal.dvl.q.factor=5
 ro.vendor.vibrator.hal.f0.comp.enabled=1
+ro.vendor.vibrator.hal.loc.coeff=3.163498
+ro.vendor.vibrator.hal.lra.max.voltage=11
 ro.vendor.vibrator.hal.redc.comp.enabled=0
-vendor.audio.hapticgenerator.distortion.output.gain=0.29
+ro.vendor.vibrator.hal.v_click=5 85
+vendor.audio.hapticgenerator.distortion.output.gain=0.36
 
 # Wi-Fi
 ro.vendor.wifi.model=bcm4383
