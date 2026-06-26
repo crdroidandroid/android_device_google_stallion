@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Boolean indicating whether display white balance is supported. -->
+    <bool name="config_displayWhiteBalanceAvailable">true</bool>
+
+    <!-- Boolean indicating whether display white balance should be enabled by default. -->
+    <bool name="config_displayWhiteBalanceEnabledDefault">true</bool>
+
+    <!-- Minimum color temperature, in Kelvin, supported by display white balance. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureMin">2500</integer>
+
+    <!-- Default color temperature, in Kelvin, used by display white balance. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureDefault">6400</integer>
+
+    <!-- The display primaries, in CIE1931 XYZ color space, for display
+         white balance to use in its calculations. The array must include a total of 12 float
+         values: 3 values per color (X, Y, Z) and 4 colors (R, G, B, W) -->
+    <string-array name="config_displayWhiteBalanceDisplayPrimaries">
+        <item>0.5128</item>
+        <item>0.2413</item>
+        <item>0.0000</item>
+        <item>0.2598</item>
+        <item>0.6764</item>
+        <item>0.0441</item>
+        <item>0.2057</item>
+        <item>0.0823</item>
+        <item>1.0832</item>
+        <item>0.9783</item>
+        <item>1.0000</item>
+        <item>1.1273</item>
+    </string-array>
+
+    <!-- The nominal white coordinates, in CIE1931 XYZ color space, for Display White Balance to
+         use in its calculations. AWB will adapt this white point to the target ambient white
+         point. The array must include a total of 3 float values (X, Y, Z) -->
+    <string-array name="config_displayWhiteBalanceDisplayNominalWhite">
+        <item>0.9783</item>
+        <item>1.0000</item>
+        <item>1.1273</item>
+    </string-array>
+
+    <!-- The CCT closest to the white coordinates (primary) above and in SurfaceControl. -->
+    <integer name="config_displayWhiteBalanceDisplayNominalWhiteCct">6543</integer>
+
+    <!-- Steps corresponding to config_displayWhiteBalanceDisplayRangeMinimums. For example, if the
+         range minimums are [0, 3000] and the steps are [10, 20] then between 0 and 3000, exclusive,
+         the step between them will be 10 (i.e. 0, 10, 20, etc.) and the step between 3000 and the
+         maximum value is 20 (i.e. 3000, 3020, 3040, etc.). -->
+    <integer-array name="config_displayWhiteBalanceDisplaySteps">
+        <item>40</item>
+    </integer-array>
+
+    <!-- Duration, in milliseconds, of the display white balance animated transitions. -->
+    <integer name="config_displayWhiteBalanceTransitionTime">8000</integer>
+
+    <!-- Duration, in milliseconds, of the display white balance animated transitions when increasing cct. -->
+    <integer name="config_displayWhiteBalanceTransitionTimeIncrease">3000</integer>
+
+    <!-- Duration, in milliseconds, of the display white balance animated transitions when decreasing cct. -->
+    <integer name="config_displayWhiteBalanceTransitionTimeDecrease">8000</integer>
+
+    <!-- Indicate whether to allow the device to suspend when the screen is off
+         due to the proximity sensor.  This resource should only be set to true
+         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
+         Otherwise, the device may fail to wake out of suspend reliably.
+         The default is false. -->
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+
+    <!-- Default screen brightness setting set.
+         -2 is invalid so setting will resort to int value specified above.
+         Must be in the range specified by minimum and maximum. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.06954968</item>
+
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+
+    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
+         The N entries of this array define N + 1 control points as follows:
+         (1-based arrays)
+
+         Point 1:            (0, value[1]):             lux <= 0
+         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
+         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         ...
+         Point N+1: (level[N], value[N+1]):  level[N] < lux
+
+         The control points must be strictly increasing.  Each control point
+         corresponds to an entry in the brightness backlight values arrays.
+         For example, if lux == level[1] (first element of the levels array)
+         then the brightness will be determined by value[2] (second element
+         of the brightness values array).
+
+         Spline interpolation is used to determine the auto-brightness
+         backlight values for lux levels between these control points.
+
+         Must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>8</item>
+        <item>12</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+        <item>700</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>9000</item>
+        <item>10000</item>
+        <item>14000</item>
+        <item>17000</item>
+        <item>20000</item>
+        <item>24000</item>
+        <item>28000</item>
+        <item>32000</item>
+        <item>42000</item>
+        <item>52000</item>
+        <item>62000</item>
+        <item>72000</item>
+        <item>82000</item>
+        <item>92000</item>
+        <item>100000</item>
+    </integer-array>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
+         brightness of an all-white image.
+
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+        <item>5.139055</item>
+        <item>9.962019</item>
+        <item>18.34823</item>
+        <item>21.550682</item>
+        <item>24.016779</item>
+        <item>32.5</item>
+        <item>46</item>
+        <item>53.26923</item>
+        <item>55.684563</item>
+        <item>63.032482</item>
+        <item>71.80252</item>
+        <item>84.52631</item>
+        <item>111.15724</item>
+        <item>129.95047</item>
+        <item>147.69106</item>
+        <item>166.48074</item>
+        <item>176.68456</item>
+        <item>444.30115</item>
+        <item>649.04895</item>
+        <item>806.12634</item>
+        <item>935.6339</item>
+        <item>993.10095</item>
+        <item>1189.1057</item>
+        <item>1310.4114</item>
+        <item>1415.9592</item>
+        <item>1537.5922</item>
+        <item>1641.5</item>
+        <item>1730.2657</item>
+        <item>1890.6998</item>
+        <item>1964.0239</item>
+        <item>2015.6743</item>
+        <item>2076.6768</item>
+        <item>2139.8667</item>
+        <item>2201.915</item>
+        <item>2250</item>
+    </array>
+
+    <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
+         values by calculating the index to use for lookup and then setting the constraint value
+         to the corresponding value of the array. The new brightening hysteresis constraint value
+         is the n-th element of config_ambientBrighteningThresholds, and the new darkening
+         hysteresis constraint value is the n-th element of config_ambientDarkeningThresholds.
+
+         The (zero-based) index is calculated as follows: (MAX is the largest index of the array)
+         condition                       calculated index
+         value < level[0]                0
+         level[n] <= value < level[n+1]  n+1
+         level[MAX] <= value             MAX+1 -->
+    <integer-array name="config_ambientThresholdLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>13</item>
+        <item>15</item>
+        <item>17</item>
+        <item>19</item>
+        <item>20</item>
+        <item>22</item>
+        <item>25</item>
+        <item>27</item>
+        <item>30</item>
+        <item>32</item>
+        <item>35</item>
+        <item>37</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+    </integer-array>
+
+    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_ambientThresholdLevels. The brightening threshold is calculated as
+         lux * (1.0f + CONSTRAINT_VALUE). When the current lux is higher than this threshold,
+         the screen brightness is recalculated. See the config_ambientThresholdLevels
+         description for how the constraint value is chosen. -->
+    <integer-array name="config_ambientBrighteningThresholds">
+        <item>4999</item>
+        <item>4999</item>
+        <item>2499</item>
+        <item>1999</item>
+        <item>1749</item>
+        <item>1599</item>
+        <item>1926</item>
+        <item>1805</item>
+        <item>1654</item>
+        <item>1484</item>
+        <item>1299</item>
+        <item>1181</item>
+        <item>923</item>
+        <item>799</item>
+        <item>705</item>
+        <item>578</item>
+        <item>549</item>
+        <item>520</item>
+        <item>476</item>
+        <item>494</item>
+        <item>460</item>
+        <item>531</item>
+        <item>457</item>
+        <item>486</item>
+        <item>499</item>
+        <item>517</item>
+        <item>565</item>
+        <item>612</item>
+        <item>660</item>
+        <item>708</item>
+        <item>742</item>
+        <item>636</item>
+        <item>582</item>
+        <item>549</item>
+        <item>513</item>
+        <item>477</item>
+        <item>441</item>
+        <item>405</item>
+        <item>369</item>
+        <item>294</item>
+        <item>269</item>
+        <item>220</item>
+        <item>219</item>
+    </integer-array>
+
+    <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_ambientThresholdLevels. The darkening threshold is calculated as
+         lux * (1.0f - CONSTRAINT_VALUE). When the current lux is lower than this threshold,
+         the screen brightness is recalculated. See the config_ambientThresholdLevels
+         description for how the constraint value is chosen. -->
+    <integer-array name="config_ambientDarkeningThresholds">
+        <item>500</item>
+        <item>500</item>
+        <item>750</item>
+        <item>833</item>
+        <item>875</item>
+        <item>900</item>
+        <item>916</item>
+        <item>857</item>
+        <item>750</item>
+        <item>666</item>
+        <item>600</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>525</item>
+        <item>283</item>
+    </integer-array>
+
+    <!-- MMS user agent string, for example OemNameDeviceName
+         If the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie
+         <string name="config_mms_user_agent">OemName%s</string> -->
+    <string name="config_mms_user_agent" translatable="false">ge1gq</string>
+
+    <!-- MMS user agent prolfile url, for example https://uaprof.oem_name.com/DeviceName.xml
+         if the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie https://uaprof.oem_name.com/%s.xml -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/GE1GQ.xml</string>
+
+    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
+    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">com.google.sensor.long_press</string>
+
+    <!-- Type of the quick pickup sensor. Empty if quick pickup is not supported. -->
+    <string name="config_quickPickupSensorType" translatable="false">com.google.sensor.quick_pickup</string>
+
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
+
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display. Optionally, you can append either `@left` or `@right` to the
+         end of the path string, in order to change the path origin to either the top left,
+         or top right of the display.
+
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
+
+         If the display supports multiple resolutions, please define the path config based on the
+         highest resolution so that it can be scaled correctly in each resolution.
+
+         Example for a 10px x 10px square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
+         Example for a 10dp x 10dp square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
+
+         @see https://www.w3.org/TR/SVG/paths.html#PathData
+         -->
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">m 581.5,86 a 41.5,41.5 0 0 0 -83,0 41.5,41.5 0 0 0 83,0 z @left</string>
+
+    <!-- Like config_mainBuiltInDisplayCutout, but this path is used to report the
+         one single bounding rect per device edge to the app via
+         {@link DisplayCutout#getBoundingRect}. Note that this path should try to match the visual
+         appearance of the cutout as much as possible, and may be smaller than
+         config_mainBuiltInDisplayCutout
+         -->
+    <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">m 484,0 h 112 v 152 h -112 z @left</string>
+
+    <!-- The scale factor to be applied for external vibrations only (i.e. audio-coupled haptics),
+         defined by a positive float value.
+         The values from config_vibrationIntensityScaleFactors will be used if this is not set.
+         The number of entries here must be the device supported scale levels for LOW/MEDIUM/HIGH.
+         Example:
+         <string-array name="config_externalVibrationIntensityScaleFactors" translatable="false">
+           <item>0.3</item> -> Vibrator.VIBRATION_INTENSITY_LOW
+           <item>0.5</item> -> Vibrator.VIBRATION_INTENSITY_MEDIUM
+           <item>1.0</item> -> Vibrator.VIBRATION_INTENSITY_HIGH
+         </string-array> -->
+    <string-array name="config_externalVibrationIntensityScaleFactors" translatable="false">
+        <item>0.35</item>
+        <item>0.55</item>
+        <item>1.0</item>
+    </string-array>
+
+    <!-- The max vibration strength allowed in audio haptic channels, must be positive or zero if
+         limit is unknown. -->
+    <item name="config_hapticChannelMaxVibrationAmplitude" format="float" type="dimen">0.32</item>
+
+    <!-- The stable device width and height in pixels. If these aren't set to a positive number
+         then the device will use the width and height of the default display the first time it's
+         booted.  -->
+    <integer name="config_stableDeviceDisplayWidth">1080</integer>
+    <integer name="config_stableDeviceDisplayHeight">2424</integer>
+
+    <!-- See AmbientSensor.AmbientColorTemperatureSensor.
+         The ambient color temperature sensor rate (in milliseconds). Must be positive. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureSensorRate">100</integer>
+
+    <!-- See AmbientFilter.
+         How long ambient color temperature changes are kept and taken into consideration
+         (in milliseconds). Must be positive. -->
+    <integer name="config_displayWhiteBalanceColorTemperatureFilterHorizon">1000</integer>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The debounce time (in milliseconds) for increasing the screen color temperature, throttled
+         if time > lastTime + debounce. Must be non-negative. -->
+    <integer name="config_displayWhiteBalanceIncreaseDebounce">1000</integer>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The debounce time (in milliseconds) for decreasing the screen color tempearture, throttled
+         if time < lastTime - debounce. Must be non-negative. -->
+    <integer name="config_displayWhiteBalanceDecreaseDebounce">1000</integer>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The ambient color temperature values used to determine the threshold as the corresponding
+         value in config_displayWhiteBalance{Increase,Decrease}Threholds. Must be non-empty, the
+         same length as config_displayWhiteBalance{Increase,Decrease}Thresholds, and contain
+         non-negative, strictly increasing numbers.
+
+         For example, if:
+
+         - baseThresolds = [0, 100, 1000];
+         - increaseThresholds = [0.1, 0.15, 0.2];
+         - decreaseThresholds = [0.1, 0.05, 0.0];
+
+         Then, given the ambient color temperature INCREASED from X to Y (so X < Y):
+         - If 0 <= Y < 100, we require Y > (1 + 0.1) * X = 1.1X;
+         - If 100 <= Y < 1000, we require Y > (1 + 0.15) * X = 1.15X;
+         - If 1000 <= Y, we require Y > (1 + 0.2) * X = 1.2X.
+
+         Or, if the ambient color temperature DECREASED from X to Y (so X > Y):
+         - If 0 <= Y < 100, we require Y < (1 - 0.1) * X = 0.9X;
+         - If 100 <= Y < 1000, we require Y < (1 - 0.05) * X = 0.95X;
+         - If 1000 <= Y, we require Y < (1 - 0) * X = X.
+
+         NOTE: the numbers in this example are made up, and don't represent how actual base,
+               increase or decrease thresholds would look like. -->
+    <array name="config_displayWhiteBalanceBaseThresholds">
+        <item>6300</item>
+        <item>6400</item>
+        <item>6850</item>
+        <item>7450</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The increase threshold values, throttled if value < value * (1 + threshold). Must be
+         non-empty, the same length as config_displayWhiteBalanceBaseThresholds, and contain
+         non-negative numbers. -->
+    <array name="config_displayWhiteBalanceIncreaseThresholds">
+        <item>0.007874</item>
+        <item>0.0075472</item>
+        <item>0.006993</item>
+        <item>0.0067114</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceThrottler.
+         The decrease threshold values, throttled if value > value * (1 - threshold). Must be
+         non-empty, the same length as config_displayWhiteBalanceBaseThresholds, and contain
+         non-negative numbers. -->
+    <array name="config_displayWhiteBalanceDecreaseThresholds">
+        <item>0.007874</item>
+        <item>0.0075472</item>
+        <item>0.006993</item>
+        <item>0.0067114</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceLowLightAmbientBiases, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceLowLightAmbientColorTemperature.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceLowLightAmbientBiases. -->
+    <array name="config_displayWhiteBalanceLowLightAmbientBrightnesses">
+        <item>3.0</item>
+        <item>10.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceLowLightAmbientBiasesStrong, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceLowLightAmbientColorTemperatureIdle.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceLowLightAmbientBiasesStrong. -->
+    <array name="config_displayWhiteBalanceLowLightAmbientBrightnessesStrong">
+        <item>3.0</item>
+        <item>10.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The ambient color temperature (in cct) to which we interpolate towards using the
+         the look up table generated by config_displayWhiteBalanceLowLightAmbientBrightnesses
+         and config_displayWhiteBalanceLowLightAmbientBiases. -->
+    <item name="config_displayWhiteBalanceLowLightAmbientColorTemperature" format="float" type="dimen">5250.0</item>
+
+    <!-- See DisplayWhiteBalanceController.
+         The ambient color temperature (in cct) to which we interpolate towards using the
+         the look up table generated by config_displayWhiteBalanceLowLightAmbientBrightnessesStrong
+         and config_displayWhiteBalanceLowLightAmbientBiasesStrong. Used when device is in Idle Screen
+         Brightness mode. -->
+    <item name="config_displayWhiteBalanceLowLightAmbientColorTemperatureStrong" format="float" type="dimen">4000.0</item>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceHighLightAmbientBiases, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceHighLightAmbientColorTemperature.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceHighLightAmbientBiases. -->
+    <array name="config_displayWhiteBalanceHighLightAmbientBrightnesses">
+        <item>130000.0</item>
+        <item>150000.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient brightnesses, in Lux. This array,
+         together with config_displayWhiteBalanceHighLightAmbientBiasesStrong, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient brightness readings to a bias, where the bias is used to linearly interpolate
+         between ambient color temperature and
+         config_displayWhiteBalanceHighLightAmbientColorTemperatureStrong.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceHighLightAmbientBiasesStrong. -->
+    <array name="config_displayWhiteBalanceHighLightAmbientBrightnessesStrong">
+        <item>130000.0</item>
+        <item>150000.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceHighLightAmbientBrightnesses for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name="config_displayWhiteBalanceHighLightAmbientBiases">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of biases. See
+         config_displayWhiteBalanceHighLightAmbientBrightnessesStrong for additional details.
+         This array must be in the range of [0.0, 1.0]. -->
+    <array name="config_displayWhiteBalanceHighLightAmbientBiasesStrong">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The ambient color temperature (in cct) to which we interpolate towards using the
+         the look up table generated by config_displayWhiteBalanceHighLightAmbientBrightnesses
+         and config_displayWhiteBalanceHighLightAmbientBiases. -->
+    <item name="config_displayWhiteBalanceHighLightAmbientColorTemperature" format="float" type="dimen">6700.0</item>
+
+    <!-- See DisplayWhiteBalanceController.
+         A float array containing a list of ambient color temperatures, in Kelvin. This array,
+         together with config_displayWhiteBalanceDisplayColorTemperatures, is used to generate a
+         lookup table used in DisplayWhiteBalanceController. This lookup table is used to map
+         ambient color temperature readings to a target color temperature for the display.
+         This table is optional. If used, this array must,
+         1) Contain at least two entries
+         2) Be the same length as config_displayWhiteBalanceDisplayColorTemperatures. -->
+    <array name="config_displayWhiteBalanceAmbientColorTemperatures">
+        <item>2500</item>
+        <item>3100</item>
+        <item>3700</item>
+        <item>4200</item>
+        <item>4800</item>
+        <item>5300</item>
+        <item>6000</item>
+        <item>6500</item>
+        <item>7000</item>
+        <item>7500</item>
+        <item>8000</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         An array containing a list of display color temperatures, in Kelvin. See
+         config_displayWhiteBalanceAmbientColorTemperatures for additional details.
+         The same restrictions apply to this array. -->
+    <array name="config_displayWhiteBalanceDisplayColorTemperatures">
+        <item>5250</item>
+        <item>5550</item>
+        <item>6000</item>
+        <item>6250</item>
+        <item>6450</item>
+        <item>6550</item>
+        <item>6750</item>
+        <item>6850</item>
+        <item>6950</item>
+        <item>7050</item>
+        <item>7200</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The same as config_displayWhiteBalanceAmbientColorTemperatures, but with a stronger
+         visual adjustment. -->
+    <array name="config_displayWhiteBalanceStrongAmbientColorTemperatures">
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+        <item>5000</item>
+        <item>5500</item>
+        <item>6000</item>
+        <item>6500</item>
+        <item>7000</item>
+        <item>7500</item>
+        <item>8000</item>
+    </array>
+
+    <!-- See DisplayWhiteBalanceController.
+         The same as config_displayWhiteBalanceDisplayColorTemperatures, but with a stronger
+         visual adjustment. -->
+    <array name="config_displayWhiteBalanceStrongDisplayColorTemperatures">
+        <item>4000</item>
+        <item>4600</item>
+        <item>5400</item>
+        <item>6300</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+        <item>7200</item>
+    </array>
+
+    <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
+         the framework from using higher refresh rates, even if display modes with higher refresh
+         rates are available from hardware composer. Only has an effect if the value is
+         non-zero. -->
+    <integer name="config_defaultPeakRefreshRate">60</integer>
+
+    <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
+         vendors to tune the curves to have exact same brightness for different refresh rate. So
+         flicker could be observed at switch time. The issue is worse at the gamma lower end.
+         In addition, human eyes are more sensitive to the flicker at darker environment.
+         To prevent flicker, we only support higher refresh rates if the display brightness is above
+         a threshold.
+         For example, no higher refresh rate if
+             display brightness <= disp0 && ambient brightness <= amb0
+             || display brightness <= disp1 && ambient brightness <= amb1
+         Brightness thresholds are paired with lux thresholds - they both have to be met.
+         A negative brightness or lux value means that only one threshold should be used - e.g. if
+         the brightness value is negative, only the lux threshold is applied. -->
+    <!-- Low zone brightness thresholds in the range [0, 255] -->
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
+        <item>2</item>
+    </integer-array>
+
+    <!-- Low zone lux thresholds -->
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
+        <item>5</item>
+    </integer-array>
+
+    <!-- Default refresh rate in the zone defined by brightness and ambient thresholds.
+         If non-positive, then the refresh rate is unchanged even if thresholds are configured. -->
+    <integer name="config_defaultRefreshRateInZone">120</integer>
+
+    <!-- Default refresh rate while the device has high brightness mode enabled for HDR. -->
+    <integer name="config_defaultRefreshRateInHbmHdr">60</integer>
+
+    <!-- A string config in svg path format for the main display shape.
+         (@see https://www.w3.org/TR/SVG/paths.html#PathData).
+
+         This config must be set unless:
+         1. {@link Configuration#isScreenRound} is true which means the display shape is circular
+            and the system will auto-generate a circular shape.
+         2. The display has no rounded corner and the system will auto-generate a rectangular shape.
+         (@see DisplayShape#createDefaultDisplayShape)
+
+         Note: If the display supports multiple resolutions, please define the path config based on
+         the highest resolution so that it can be scaled correctly in each resolution. -->
+    <string name="config_mainDisplayShape" translatable="false">m 1079.946,2228.66 c 0,0 0.18,21.63 -0.12,32.44 -0.27,9.87 -0.39,19.77 -1.53,29.57 -1.13,9.74 -2.58,19.5 -5.23,28.95 -2.71,9.67 -6.21,19.2 -10.829,28.12 -4.72,9.13 -10.449,17.83 -17.099,25.68 -6.69,7.9 -14.379,15.04 -22.689,21.24 -7.73,5.77 -16.209,10.61 -24.989,14.62 -8.57,3.91 -17.619,6.81 -26.769,9.05 -8.96,2.2 -18.159,3.37 -27.339,4.29 -9.29,0.93 -18.649,1.01 -27.979,1.23 -10.229,0.24 -30.698,0.1 -30.698,0.1 H 195.323 c 0,0 -21.629,0.17 -32.438,-0.12 -9.869,-0.27 -19.769,-0.39 -29.568,-1.53 -9.739,-1.13 -19.499,-2.59 -28.938,-5.23 -9.669,-2.71 -19.199,-6.21 -28.119,-10.83 -9.14,-4.73 -17.829,-10.46 -25.669,-17.1 -7.91,-6.7 -15.039,-14.39 -21.229,-22.69 -5.77,-7.74 -10.619,-16.21 -14.619,-24.99 -3.91,-8.57 -6.81,-17.62 -9.05,-26.77 -2.2,-8.96 -3.37,-18.16 -4.29,-27.34 -0.93,-9.29 -1.01,-18.65 -1.24,-27.98 -0.24,-10.23 -0.1,-30.7 -0.1,-30.7 L 0.054,195.334 c 0,0 -0.18,-21.63 0.12,-32.44 C 0.444,153.024 0.564,143.124 1.703,133.324 2.833,123.584 4.283,113.824 6.933,104.374 9.643,94.704 13.143,85.174 17.763,76.254 22.482,67.124 28.212,58.424 34.862,50.584 41.551,42.684 49.241,35.544 57.551,29.344 65.28,23.574 73.76,18.734 82.539,14.724 91.109,10.824 100.158,7.924 109.308,5.674 c 8.96,-2.2 18.159,-3.37 27.339,-4.29 9.29,-0.93 18.649,-1.01 27.979,-1.23 10.229,-0.24 30.698,-0.1 30.698,-0.1 h 689.314 c 0,0 21.629,-0.18 32.438,0.12 9.869,0.27 19.769,0.39 29.568,1.53 9.739,1.13 19.499,2.59 28.938,5.23 9.669,2.71 19.199,6.21 28.119,10.83 9.14,4.73 17.829,10.46 25.669,17.1 7.91,6.7 15.039,14.39 21.229,22.69 5.77,7.74 10.619,16.21 14.619,24.99 3.91,8.57 6.81,17.62 9.05,26.77 2.2,8.96 3.37,18.16 4.29,27.34 0.93,9.29 1.01,18.65 1.24,27.98 0.24,10.23 0.1,30.7 0.1,30.7 z</string>
+
+    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
+    <bool name="config_screen_off_udfps_enabled">true</bool>
+</resources>

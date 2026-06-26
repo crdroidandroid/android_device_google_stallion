@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- If the default coex channel avoidance algorithm is enabled, then avoid channels that
+         conflict with GPS L1. -->
+    <bool name="config_wifiCoexForGpsL1">true</bool>
+</resources>

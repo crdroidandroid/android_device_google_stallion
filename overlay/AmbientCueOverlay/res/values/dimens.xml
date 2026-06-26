@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Default height of taskbar for Launcher.   -->
+    <dimen name="taskbar_stashed_size">36dp</dimen>
+</resources>

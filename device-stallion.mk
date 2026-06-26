@@ -27,16 +27,19 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    DMServiceOverlayVendorTegu \
-    FrameworkResOverlayProductTegu \
-    FrameworkResOverlayVendorTegu \
-    PixelDisplayServiceOverlayProductTegu \
-    PixelNfcOverlayTegu \
-    SafetyRegulatoryInfoOverlayProductTegu \
-    SettingsGoogleOverlayVendorTegu \
-    SettingsTeguOverlay \
-    SystemUIGoogleOverlayProductTegu \
-    SystemUIGoogleOverlayVendorTegu
+    AmbientCueOverlay \
+    DMServiceOverlayVendorStallion \
+    FrameworkResOverlayProductStallion \
+    FrameworkResOverlayVendorStallion \
+    PixelDisplayServiceOverlayProductStallion \
+    PixelNfcOverlayStallion \
+    PixelWifiOverlay2025_M26Stallion \
+    SafetyRegulatoryInfoOverlayProductStallion \
+    SettingsGoogleOverlayVendorStallion \
+    SettingsStallionOverlay \
+    SystemUIGoogleOverlayProductStallion \
+    SystemUIGoogleOverlayVendorStallion \
+    TeleServiceOverlayVendorStallion
 
 PRODUCT_PACKAGES += \
     ApertureOverlayTegu
