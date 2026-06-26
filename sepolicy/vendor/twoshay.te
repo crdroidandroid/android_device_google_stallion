@@ -1,1 +1,4 @@
+hal_client_domain(twoshay, hal_ambience_hub)
+
+binder_call(twoshay, ambience_hub_default)
 binder_call(twoshay, hal_aidl_radio_ext)

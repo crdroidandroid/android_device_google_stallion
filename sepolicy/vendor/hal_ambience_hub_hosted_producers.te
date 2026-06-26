@@ -1,0 +1,9 @@
+type ambience_hub_default, domain;
+
+hal_server_domain(ambience_hub_default, hal_ambience_hub)
+
+binder_call(ambience_hub_default, twoshay)
+
+init_daemon_domain(ambience_hub_default)
+
+allow ambience_hub_default twoshay_notification_service:service_manager find;

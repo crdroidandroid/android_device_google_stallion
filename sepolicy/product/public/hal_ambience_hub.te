@@ -1,0 +1,8 @@
+type hal_ambience_hub_service, hal_service_type, service_manager_type;
+
+binder_call(hal_ambience_hub_client, hal_ambience_hub_server)
+binder_call(hal_ambience_hub_server, hal_ambience_hub_client)
+
+binder_use(hal_ambience_hub_server)
+
+hal_attribute_service(hal_ambience_hub, hal_ambience_hub_service)

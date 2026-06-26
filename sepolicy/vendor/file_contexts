@@ -6,4 +6,5 @@
 /dev/lwis-sensor-barghest u:object_r:lwis_device:s0
 /dev/lwis-sensor-leshen u:object_r:lwis_device:s0
 /dev/lwis-sensor-leshen-uw u:object_r:lwis_device:s0
+/vendor/bin/hw/vendor\.google\.ambience_hub-service u:object_r:ambience_hub_default_exec:s0
 /vendor/bin/hw/vendor\.google\.radioext@1\.0-service u:object_r:hal_aidl_radio_ext_exec:s0

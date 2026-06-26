@@ -19,6 +19,7 @@ allow hal_aidl_radio_ext hal_bluetooth_coexistence_service:service_manager find;
 allow hal_aidl_radio_ext radio_device:chr_file rw_file_perms;
 allow hal_aidl_radio_ext radio_vendor_data_file:dir create_dir_perms;
 allow hal_aidl_radio_ext radio_vendor_data_file:file create_file_perms;
+allow hal_aidl_radio_ext sysfs:file r_file_perms;
 allow hal_aidl_radio_ext sysfs_display:dir search;
 allow hal_aidl_radio_ext sysfs_display:file rw_file_perms;
 allow hal_aidl_radio_ext sysfs_leds:dir search;

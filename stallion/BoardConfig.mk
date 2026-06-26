@@ -27,6 +27,12 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/google/pixel-sepolicy/vibrator/common \
     hardware/google/pixel-sepolicy/vibrator/cs40l26
 
+PRODUCT_PRIVATE_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy/product/private
+
+PRODUCT_PUBLIC_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy/product/public
+
 # WiFi
 include $(DEVICE_PATH)/wifi/BoardConfig-wifi.mk
 
