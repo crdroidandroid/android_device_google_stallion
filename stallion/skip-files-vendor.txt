@@ -239,7 +239,6 @@ etc/boringssl_self_test.zygote64.rc
 etc/boringssl_self_test.zygote64_32.rc
 etc/bpf/filterPowerSupplyEvents.o
 etc/build_flags.json
-etc/default_volume_tables.xml
 etc/fs_config_dirs
 etc/fs_config_files
 etc/fstab.zram.2g
@@ -535,6 +534,7 @@ lib64/libtinyalsa.so
 lib64/libtinyalsav2.so
 
 # Audio
+etc/audio/config/default_volume_tables.xml
 lib64/android.hardware.audio.common-V5-ndk.so
 lib64/android.hardware.audio.core-V4-ndk.so
 lib64/android.hardware.audio.core.sounddose-V4-ndk.so
@@ -616,6 +616,8 @@ lib64/android.hardware.gnss@1.0.so
 lib64/android.hardware.gnss@1.1.so
 lib64/android.hardware.gnss@2.0.so
 lib64/android.hardware.gnss@2.1.so
+lib64/liblzma.so
+lib64/libunwindstack.so
 
 # HIDL
 lib64/libhidltransport.so
@@ -650,7 +652,6 @@ lib64/libziparchive.so
 
 # Sensors
 lib64/android.frameworks.sensorservice-V1-ndk.so
-lib64/android.frameworks.sensorservice@1.0.so
 lib64/hw/sensors.dynamic_sensor_hal.so
 lib64/libhidparser.so
 lib64/libsensorndkbridge.so
@@ -746,8 +747,8 @@ lib64/libion.so
 lib64/libui.so
 
 # Odex
-framework/oat/arm64/com.google.android.camera.experimental2024.odex
-framework/oat/arm64/com.google.android.camera.experimental2024.vdex
+framework/oat/arm64/com.google.android.camera.experimental2025.odex
+framework/oat/arm64/com.google.android.camera.experimental2025.vdex
 
 # Rust
 lib64/libaconfig_storage_file.dylib.so

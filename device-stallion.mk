@@ -23,12 +23,7 @@ include device/google/zumapro/common.mk
 
 # Audio
 PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.allocator@1.0-service \
-    hwservicemanager
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/config/default_volume_tables.xml
 
 # Overlays
 PRODUCT_PACKAGES += \
