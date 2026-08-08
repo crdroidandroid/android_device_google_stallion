@@ -6,5 +6,11 @@
   {
     "repository": "android_device_google_stallion-kernels",
     "target_path": "device/google/stallion-kernels"
+     "branch": "lineage-24.0"
+  },
+  {
+    "repository": "TheMuppets/proprietary_vendor_google_stallion",
+    "target_path": "vendor/google/stallion",
+    "branch": "lineage-24.0"
   }
 ]
